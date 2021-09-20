@@ -181,6 +181,6 @@ def wer(r, h):
 
     # print the result in aligned way
     result = float(d[len(r)][len(h)]) / len(r) * 100
-    result = str("%.2f" % result) + "%"
-    alignedPrint(list, r, h, result)
+    result = "%.2f" % result
+    return result
     
