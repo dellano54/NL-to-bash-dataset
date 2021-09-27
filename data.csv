@@ -1301,7 +1301,7 @@ Delete all MP3 files under tmp,find /tmp -iname '*.mp3' -print0 | xargs -0 rm
 Delete all temp directories under maximum 1 level down the current directory tree,find . -maxdepth 1 -type d -name '__temp__*' -print0 | xargs -0 rm -rf
 Delete all temp filesdirectories under current directory tree,find . -depth -name '__temp__*' -exec rm -rf '{}' \;
 Delete all temp filesdirectories under current directory tree,find . -name __temp__* -exec rm -rf '{}' \;
-Delete all broken symbolic links under usrportspackages directory tree,find -L /usr/ports/packages -type l -exec rm -- {}	+
+Delete all broken symbolic links under usrportspackages directory tree,"find -L /usr/ports/packages -type l -exec rm -- {}	+"
 Delete all but the most recent 5 files,ls -tr | head -n -5 | xargs rm
 Delete all but the most recent X files in bash,(ls -t|head -n X;ls)|sort|uniq -u|xargs rm
 Delete all contents form the files that contain the regex string in maximum 1 level down the  directory excluding other partitions,find / -maxdepth 1 -xdev -type f|xargs grep -l 'string'| xargs perl -pi -e 's/.*\n//g'
@@ -2946,7 +2946,7 @@ Find all files that were last accessed more than 7 days ago under home,find /hom
 Find all files that were last modified less than7 days ago under home,find /home -mtime -7
 Find all files that were modified later than ordinaryfile in the current directory and its subdirectories,find -newer ordinary_file
 Find all files that were not accessed in the past 100 days,find /home -atime +100
-Find all files throughout the entire file hierarchy with the optional constraints of опцияпоиска значение andor опциядействия,find / [опция_поиска] [значение] 	[опция_действия]
+Find all files throughout the entire file hierarchy with the optional constraints of опцияпоиска значение andor опциядействия,"find / [опция_поиска] [значение] 	[опция_действия]"
 Find all files under  current directory and rename them by replacing all white spaces with ,"find ./ -name ""* *"" -type f -d 1 | perl -ple '$file = $_; $file =~ s/\s+/_/g; rename($_, $file);'"
 Find all files under path that do not contain a  and append jpg to their file name,"find /path -type f -not -name ""*.*"" -print0 | xargs -0 rename 's/(.)$/$1.jpg/'"
 Find all files under 1 directory excluding hidden files and append a null character at the end of each of their paths,"find ""$1"" -path ""*/.*"" -prune -o \( -type f -print0 \)"
@@ -3274,7 +3274,7 @@ Find all filesdirectories starting with readme under usrsharedoc directory tree,
 Find all filesdirectories startring with onlyme in their names under current directory without going into subdirectories,find . -maxdepth 1 -name 'onlyme*'
 Find all filesdirectories that are bigger than 100 bytes under homeapache directory tree,find /home/apache -size 100c -print
 Find all filesdirectories that are newer than backuptargz by modification time,find . -newer  backup.tar.gz
-Find all filesdirectories that are newer than ttt by modification time or owned by the user wnj in the entire filesystem,find / \( -newer ttt -or -user wnj	\) -print
+Find all filesdirectories that are newer than ttt by modification time or owned by the user wnj in the entire filesystem,"find / \( -newer ttt -or -user wnj	\) -print"
 Find all filesdirectories that are not newer than Jul 01 by modification time,"find /file/path ! -newermt ""Jul 01"""
 Find all filesdirectories that are owned by user dave under current users home directory tree,find ~ -user dave -print
 Find all filesdirectories that are owned by user eric under current directory tree,find -user eric -print
@@ -7925,7 +7925,7 @@ Returns 0 exit status despite of somecommand execution result,somecommand | true
 Returns 0 if user 1 belongs to group 2,"groups $1 | grep -q ""\b$2\b"""
 Returns exit code 1 and terminates shell if set e was applied,a=$(false)
 Returns exit code 1,a=$(false)
-Returns exit code 1,false
+Returns exit code 1,FALSE
 Returns exit status 0 and prints exit status of previous command,"false | echo ""${PIPESTATUS[0]}"""
 Returns exit status 0,foo=$(false)$(true)
 Returns the number of modified files in a git repository whitespaces stripped,MYVAR=`git ls-files -m|wc -l|tr -d ' '`
@@ -8900,7 +8900,7 @@ Search the current directory except the subdirectory tree svn for files whose na
 Search the current users home directory and below for all png files and copy those files in the directory imagesdir,find ~/ -name *.png -exec cp {} imagesdir \;
 Search the current users home directory and its subdirectories for any file that ends in targz and was modified after filename was last modified,find ~/ -name *.tar.gz -newer filename
 Search the current users home directory and its subdirectories for any file that was modified less than 2 days ago or was modified after filename was last modified,find ~/ -mtime -2 -o -newer filename
-Search the current users home directory and its subdirectories for any files accessed after alldatatar was last accessed and add them to that same tar archive,find ~/ -newer alldata.tar 	-exec tar uvf alldata.tar {} \;
+Search the current users home directory and its subdirectories for any files accessed after alldatatar was last accessed and add them to that same tar archive,"find ~/ -newer alldata.tar 	-exec tar uvf alldata.tar {} \;"
 Search the current working directory tree for files whose names start with fileA or fileB,find . -name 'fileA_*' -o -name 'fileB_*'
 Search the dirdata directory and all of its subdirectories for regular files and remove the execute permission for all while adding the write permission for the user,"find ~/dir_data -type f  -exec chmod a-x,u+w {} \;"
 Search the directories given as arguments to the Bash script for files whose name is not ss,find $@ -not -name ss
@@ -9142,7 +9142,7 @@ Set the environment variable DISPLAY to the system host name followed by 0 skype
 Set the environment variable DISPLAY to the system host name followed by 0 skype,env DISPLAY=`hostname`:0 skype
 Set the executable bit for all users on all sh scripts from directory trees lib etc debian,"find lib etc debian -name ""*.sh"" -type f | xargs chmod +x"
 Set the executable bit for all users on all regular files from directories archx86usrsbin archx86usrX11R6bin usrsbin,find arch/x86/usr/sbin arch/x86/usr/X11R6/bin usr/sbin/ -type f | xargs chmod a+x
-Set the exit codeto 0,true
+Set the exit codeto 0,TRUE
 Set the group to username for all files with GID1000 in the current directory tree,find -gid 1000 -exec chown -h :username {} \;
 Set the history time format variable HISTTIMEFORMAT to s  and display up to event 2,"HISTTIMEFORMAT=""%s "" history 2"
 Set the host name to myServersHostname,hostname myServersHostname
@@ -11259,7 +11259,7 @@ find all the files in the file system which belong to the groep users and with t
 find all the files in the file system which belong to the user pat and with the name dateiname,"find / -user pat -iname ""Dateiname"""
 find all the files in the file system which hae set uid enabled and save them to rootsuidtxt and those which have size greater than 100MB save them to rootbigtxt,"find /    \( -perm -4000 -fprintf /root/suid.txt '%#m %u %p\n' \) , ( -size +100M -fprintf /root/big.txt '%-10s %p\n' \)"
 find all the files in the file system which have been accessed in the last 1 day,find / -atime -1
-find all the files in the file system which have been changed 1 minute ago,find / -newerct '1	minute ago' -print
+find all the files in the file system which have been changed 1 minute ago,"find / -newerct '1	minute ago' -print"
 find all the files in the file system which have been changed in the last 24 hours,find / -ctime -1
 find all the files in the file system which have been modified in the last 10 minutes,find / -mmin -10
 find all the files in the file system which have been modified in the last 3024 hours,find / -mtime -30 -print
@@ -12606,3 +12606,20 @@ view the manual page of find,man find
 wait 2 seconds and then print hello,"echo ""hello `sleep 2 &`"""
 wait for a change in targetdirectory before returning,inotifywait -e attrib target-directory
 when using viinsert keymap bind command Cvei to key ,"bind -m vi-insert '""{"" ""\C-v{}\ei""'"
+create a python file here with a name hello world,touch 'hello world.py'
+create an empty file here,touch empty
+run helloworld.py,./helloworld.py
+change permissions of hello world as executable,chmod +x 'helloworld'
+create a empty c file,touch main.c
+create a file here,touch empty
+create a python file in root folder,touch /root/main.py
+create a empy file in temp folder,touch /tmp/empty
+move every thing here to temporary directory,mv * /tmp/
+copy all files here to temp directory,find . -type f | xargs -n1 -I '{}' cp '{}' /tmp
+copy everything here to root,cp -r * /root/
+copy every folder inside text folder to home,find text -type d | xargs -n1 -I '{}' cp -r '{}' $HOME
+install zsh,sudo apt install zsh
+can u install snap for me,sudo apt install snap
+is there an app named hello world in apt,apt search 'hello world'
+can u uninstall zsh for me,sudo apt remove zsh
+can u remove beachbit for me,sudo apt remove bleachbit
