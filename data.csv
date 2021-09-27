@@ -12623,3 +12623,17 @@ can u install snap for me,sudo apt install snap
 is there an app named hello world in apt,apt search 'hello world'
 can u uninstall zsh for me,sudo apt remove zsh
 can u remove beachbit for me,sudo apt remove bleachbit
+create a file here,touch 'new file'
+could you please create a file for me ,touch 'new File'
+make a new file for me as dell,touch 'dell'
+create a new file as name.txt,touch 'name.txt'
+make a new file as he,touch he
+create a empty text file,touch empty.txt
+make a file with the index of hello.py,touch hello.py
+create a file with the name of kill,touch kill
+make a project with index as spotify-api,mkdir spotify-api
+create a file in root folder,touch /root/newFile
+create a file in home folder,touch $HOME/newFile
+create a file with a index of hello world in root folder,touch '/root/hello world'
+make a file in temporary directoy as try.py,touch /tmp/try.py
+make a file as stuff in dev directory,touch dev/suff
