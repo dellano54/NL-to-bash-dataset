@@ -1301,7 +1301,7 @@ Delete all MP3 files under tmp,find /tmp -iname '*.mp3' -print0 | xargs -0 rm
 Delete all temp directories under maximum 1 level down the current directory tree,find . -maxdepth 1 -type d -name '__temp__*' -print0 | xargs -0 rm -rf
 Delete all temp filesdirectories under current directory tree,find . -depth -name '__temp__*' -exec rm -rf '{}' \;
 Delete all temp filesdirectories under current directory tree,find . -name __temp__* -exec rm -rf '{}' \;
-Delete all broken symbolic links under usrportspackages directory tree,"find -L /usr/ports/packages -type l -exec rm -- {}	+"
+Delete all broken symbolic links under usrportspackages directory tree,find -L /usr/ports/packages -type l -exec rm -- {}	+
 Delete all but the most recent 5 files,ls -tr | head -n -5 | xargs rm
 Delete all but the most recent X files in bash,(ls -t|head -n X;ls)|sort|uniq -u|xargs rm
 Delete all contents form the files that contain the regex string in maximum 1 level down the  directory excluding other partitions,find / -maxdepth 1 -xdev -type f|xargs grep -l 'string'| xargs perl -pi -e 's/.*\n//g'
@@ -2946,7 +2946,7 @@ Find all files that were last accessed more than 7 days ago under home,find /hom
 Find all files that were last modified less than7 days ago under home,find /home -mtime -7
 Find all files that were modified later than ordinaryfile in the current directory and its subdirectories,find -newer ordinary_file
 Find all files that were not accessed in the past 100 days,find /home -atime +100
-Find all files throughout the entire file hierarchy with the optional constraints of опцияпоиска значение andor опциядействия,"find / [опция_поиска] [значение] 	[опция_действия]"
+Find all files throughout the entire file hierarchy with the optional constraints of опцияпоиска значение andor опциядействия,find / [опция_поиска] [значение] 	[опция_действия]
 Find all files under  current directory and rename them by replacing all white spaces with ,"find ./ -name ""* *"" -type f -d 1 | perl -ple '$file = $_; $file =~ s/\s+/_/g; rename($_, $file);'"
 Find all files under path that do not contain a  and append jpg to their file name,"find /path -type f -not -name ""*.*"" -print0 | xargs -0 rename 's/(.)$/$1.jpg/'"
 Find all files under 1 directory excluding hidden files and append a null character at the end of each of their paths,"find ""$1"" -path ""*/.*"" -prune -o \( -type f -print0 \)"
@@ -3274,7 +3274,7 @@ Find all filesdirectories starting with readme under usrsharedoc directory tree,
 Find all filesdirectories startring with onlyme in their names under current directory without going into subdirectories,find . -maxdepth 1 -name 'onlyme*'
 Find all filesdirectories that are bigger than 100 bytes under homeapache directory tree,find /home/apache -size 100c -print
 Find all filesdirectories that are newer than backuptargz by modification time,find . -newer  backup.tar.gz
-Find all filesdirectories that are newer than ttt by modification time or owned by the user wnj in the entire filesystem,"find / \( -newer ttt -or -user wnj	\) -print"
+Find all filesdirectories that are newer than ttt by modification time or owned by the user wnj in the entire filesystem,find / \( -newer ttt -or -user wnj	\) -print
 Find all filesdirectories that are not newer than Jul 01 by modification time,"find /file/path ! -newermt ""Jul 01"""
 Find all filesdirectories that are owned by user dave under current users home directory tree,find ~ -user dave -print
 Find all filesdirectories that are owned by user eric under current directory tree,find -user eric -print
@@ -8900,7 +8900,7 @@ Search the current directory except the subdirectory tree svn for files whose na
 Search the current users home directory and below for all png files and copy those files in the directory imagesdir,find ~/ -name *.png -exec cp {} imagesdir \;
 Search the current users home directory and its subdirectories for any file that ends in targz and was modified after filename was last modified,find ~/ -name *.tar.gz -newer filename
 Search the current users home directory and its subdirectories for any file that was modified less than 2 days ago or was modified after filename was last modified,find ~/ -mtime -2 -o -newer filename
-Search the current users home directory and its subdirectories for any files accessed after alldatatar was last accessed and add them to that same tar archive,"find ~/ -newer alldata.tar 	-exec tar uvf alldata.tar {} \;"
+Search the current users home directory and its subdirectories for any files accessed after alldatatar was last accessed and add them to that same tar archive,find ~/ -newer alldata.tar 	-exec tar uvf alldata.tar {} \;
 Search the current working directory tree for files whose names start with fileA or fileB,find . -name 'fileA_*' -o -name 'fileB_*'
 Search the dirdata directory and all of its subdirectories for regular files and remove the execute permission for all while adding the write permission for the user,"find ~/dir_data -type f  -exec chmod a-x,u+w {} \;"
 Search the directories given as arguments to the Bash script for files whose name is not ss,find $@ -not -name ss
@@ -11259,7 +11259,7 @@ find all the files in the file system which belong to the groep users and with t
 find all the files in the file system which belong to the user pat and with the name dateiname,"find / -user pat -iname ""Dateiname"""
 find all the files in the file system which hae set uid enabled and save them to rootsuidtxt and those which have size greater than 100MB save them to rootbigtxt,"find /    \( -perm -4000 -fprintf /root/suid.txt '%#m %u %p\n' \) , ( -size +100M -fprintf /root/big.txt '%-10s %p\n' \)"
 find all the files in the file system which have been accessed in the last 1 day,find / -atime -1
-find all the files in the file system which have been changed 1 minute ago,"find / -newerct '1	minute ago' -print"
+find all the files in the file system which have been changed 1 minute ago,find / -newerct '1	minute ago' -print
 find all the files in the file system which have been changed in the last 24 hours,find / -ctime -1
 find all the files in the file system which have been modified in the last 10 minutes,find / -mmin -10
 find all the files in the file system which have been modified in the last 3024 hours,find / -mtime -30 -print
@@ -12637,3 +12637,203 @@ create a file in home folder,touch $HOME/newFile
 create a file with a index of hello world in root folder,touch '/root/hello world'
 make a file in temporary directoy as try.py,touch /tmp/try.py
 make a file as stuff in dev directory,touch dev/suff
+create a file as aa,touch aa
+create a file as aah,touch aah
+create a file as aahed,touch aahed
+create a file as aahing,touch aahing
+create a file as aahs,touch aahs
+create a file as aal,touch aal
+create a file as aalii,touch aalii
+create a file as aaliis,touch aaliis
+create a file as aals,touch aals
+create a file as aardvark,touch aardvark
+create a file as aardvarks,touch aardvarks
+create a file as aardwolf,touch aardwolf
+create a file as aardwolves,touch aardwolves
+create a file as aargh,touch aargh
+create a file as aarrgh,touch aarrgh
+create a file as aarrghh,touch aarrghh
+create a file as aarti,touch aarti
+create a file as aartis,touch aartis
+create a file as aas,touch aas
+create a file as aasvogel,touch aasvogel
+create a file as aasvogels,touch aasvogels
+create a file as ab,touch ab
+create a file as aba,touch aba
+create a file as abac,touch abac
+create a file as abaca,touch abaca
+create a file as abacas,touch abacas
+create a file as abaci,touch abaci
+create a file as aback,touch aback
+create a file as abacs,touch abacs
+create a file as abacterial,touch abacterial
+create a file as abactinal,touch abactinal
+create a file as abactinally,touch abactinally
+create a file as abactor,touch abactor
+create a file as abactors,touch abactors
+create a file as abacus,touch abacus
+create a file as abacuses,touch abacuses
+create a file as abaft,touch abaft
+create a file as abaka,touch abaka
+create a file as abakas,touch abakas
+create a file as abalone,touch abalone
+create a file as abalones,touch abalones
+create a file as abamp,touch abamp
+create a file as abampere,touch abampere
+create a file as abamperes,touch abamperes
+create a file as abamps,touch abamps
+create a file as aband,touch aband
+create a file as abanded,touch abanded
+create a file as abanding,touch abanding
+create a file as abandon,touch abandon
+create a file as abandoned,touch abandoned
+make a file named aa,touch aa
+make a file named aah,touch aah
+make a file named aahed,touch aahed
+make a file named aahing,touch aahing
+make a file named aahs,touch aahs
+make a file named aal,touch aal
+make a file named aalii,touch aalii
+make a file named aaliis,touch aaliis
+make a file named aals,touch aals
+make a file named aardvark,touch aardvark
+make a file named aardvarks,touch aardvarks
+make a file named aardwolf,touch aardwolf
+make a file named aardwolves,touch aardwolves
+make a file named aargh,touch aargh
+make a file named aarrgh,touch aarrgh
+make a file named aarrghh,touch aarrghh
+make a file named aarti,touch aarti
+make a file named aartis,touch aartis
+make a file named aas,touch aas
+make a file named aasvogel,touch aasvogel
+make a file named aasvogels,touch aasvogels
+make a file named ab,touch ab
+make a file named aba,touch aba
+make a file named abac,touch abac
+make a file named abaca,touch abaca
+make a file named abacas,touch abacas
+make a file named abaci,touch abaci
+make a file named aback,touch aback
+make a file named abacs,touch abacs
+make a file named abacterial,touch abacterial
+make a file named abactinal,touch abactinal
+make a file named abactinally,touch abactinally
+make a file named abactor,touch abactor
+make a file named abactors,touch abactors
+make a file named abacus,touch abacus
+make a file named abacuses,touch abacuses
+make a file named abaft,touch abaft
+make a file named abaka,touch abaka
+make a file named abakas,touch abakas
+make a file named abalone,touch abalone
+make a file named abalones,touch abalones
+make a file named abamp,touch abamp
+make a file named abampere,touch abampere
+make a file named abamperes,touch abamperes
+make a file named abamps,touch abamps
+make a file named aband,touch aband
+make a file named abanded,touch abanded
+make a file named abanding,touch abanding
+make a file named abandon,touch abandon
+make a file named abandoned,touch abandoned
+create a file indexed as aa,touch aa
+create a file indexed as aah,touch aah
+create a file indexed as aahed,touch aahed
+create a file indexed as aahing,touch aahing
+create a file indexed as aahs,touch aahs
+create a file indexed as aal,touch aal
+create a file indexed as aalii,touch aalii
+create a file indexed as aaliis,touch aaliis
+create a file indexed as aals,touch aals
+create a file indexed as aardvark,touch aardvark
+create a file indexed as aardvarks,touch aardvarks
+create a file indexed as aardwolf,touch aardwolf
+create a file indexed as aardwolves,touch aardwolves
+create a file indexed as aargh,touch aargh
+create a file indexed as aarrgh,touch aarrgh
+create a file indexed as aarrghh,touch aarrghh
+create a file indexed as aarti,touch aarti
+create a file indexed as aartis,touch aartis
+create a file indexed as aas,touch aas
+create a file indexed as aasvogel,touch aasvogel
+create a file indexed as aasvogels,touch aasvogels
+create a file indexed as ab,touch ab
+create a file indexed as aba,touch aba
+create a file indexed as abac,touch abac
+create a file indexed as abaca,touch abaca
+create a file indexed as abacas,touch abacas
+create a file indexed as abaci,touch abaci
+create a file indexed as aback,touch aback
+create a file indexed as abacs,touch abacs
+create a file indexed as abacterial,touch abacterial
+create a file indexed as abactinal,touch abactinal
+create a file indexed as abactinally,touch abactinally
+create a file indexed as abactor,touch abactor
+create a file indexed as abactors,touch abactors
+create a file indexed as abacus,touch abacus
+create a file indexed as abacuses,touch abacuses
+create a file indexed as abaft,touch abaft
+create a file indexed as abaka,touch abaka
+create a file indexed as abakas,touch abakas
+create a file indexed as abalone,touch abalone
+create a file indexed as abalones,touch abalones
+create a file indexed as abamp,touch abamp
+create a file indexed as abampere,touch abampere
+create a file indexed as abamperes,touch abamperes
+create a file indexed as abamps,touch abamps
+create a file indexed as aband,touch aband
+create a file indexed as abanded,touch abanded
+create a file indexed as abanding,touch abanding
+create a file indexed as abandon,touch abandon
+create a file indexed as abandoned,touch abandoned
+create a file aa in titbit,touch titbit/aa
+create a file aah in galvanoscopic,touch galvanoscopic/aah
+create a file aahed in waggoned,touch waggoned/aahed
+create a file aahing in axiomatization,touch axiomatization/aahing
+create a file aahs in riven,touch riven/aahs
+create a file aal in abuttals,touch abuttals/aal
+create a file aalii in chokeberries,touch chokeberries/aalii
+create a file aaliis in sulfadoxine,touch sulfadoxine/aaliis
+create a file aals in scenarize,touch scenarize/aals
+create a file aardvark in saboteur,touch saboteur/aardvark
+create a file aardvarks in clamlike,touch clamlike/aardvarks
+create a file aardwolf in jinker,touch jinker/aardwolf
+create a file aardwolves in squiffer,touch squiffer/aardwolves
+create a file aargh in giddyap,touch giddyap/aargh
+create a file aarrgh in dungeoners,touch dungeoners/aarrgh
+create a file aarrghh in topsoiled,touch topsoiled/aarrghh
+create a file aarti in lornness,touch lornness/aarti
+create a file aartis in precinct,touch precinct/aartis
+create a file aas in spaded,touch spaded/aas
+create a file aasvogel in scrambing,touch scrambing/aasvogel
+create a file aasvogels in graphium,touch graphium/aasvogels
+create a file ab in stimy,touch stimy/ab
+create a file aba in repossession,touch repossession/aba
+create a file abac in raking,touch raking/abac
+create a file abaca in hardinesses,touch hardinesses/abaca
+create a file abacas in paediatricians,touch paediatricians/abacas
+create a file abaci in coyote,touch coyote/abaci
+create a file aback in goodfellow,touch goodfellow/aback
+create a file abacs in addressable,touch addressable/abacs
+create a file abacterial in gossipries,touch gossipries/abacterial
+create a file abactinal in overeducate,touch overeducate/abactinal
+create a file abactinally in liri,touch liri/abactinally
+create a file abactor in hematocele,touch hematocele/abactor
+create a file abactors in nonmathematicians,touch nonmathematicians/abactors
+create a file abacus in thriller,touch thriller/abacus
+create a file abacuses in punted,touch punted/abacuses
+create a file abaft in disorganizations,touch disorganizations/abaft
+create a file abaka in chouser,touch chouser/abaka
+create a file abakas in nonwoody,touch nonwoody/abakas
+create a file abalone in katabatic,touch katabatic/abalone
+create a file abalones in spellican,touch spellican/abalones
+create a file abamp in voicer,touch voicer/abamp
+create a file abampere in xenopus,touch xenopus/abampere
+create a file abamperes in fibs,touch fibs/abamperes
+create a file abamps in nicotines,touch nicotines/abamps
+create a file aband in hygienically,touch hygienically/aband
+create a file abanded in dickybird,touch dickybird/abanded
+create a file abanding in engrooves,touch engrooves/abanding
+create a file abandon in snees,touch snees/abandon
+create a file abandoned in darted,touch darted/abandoned
